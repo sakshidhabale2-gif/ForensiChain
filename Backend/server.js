@@ -13,7 +13,7 @@ const blockchainRoute = require("./routes/blockchain");
 const uploadRoute = require("./routes/upload");
 
 // middleware
-app.use(cors());
+app.use(cors({ origin: "*" }));
 app.use(express.json());
 
 const path = require("path");
