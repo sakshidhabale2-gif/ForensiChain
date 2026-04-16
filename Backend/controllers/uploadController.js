@@ -1,5 +1,5 @@
 const { addEvidence, addBlock, addAlert } = require("../data/memory");
-const generateHash = require("../services/hashService");
+const { generateHash } = require("../services/hashService");
 
 exports.uploadFile = async (req, res) => {
   try {
@@ -12,6 +12,7 @@ exports.uploadFile = async (req, res) => {
 
     const evidence = {
       fileName: file.originalname,
+      serverFileName: file.filename,
       hash,
       status: isTampered ? "Compromised" : "Safe",
       trustScore,

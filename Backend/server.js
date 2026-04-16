@@ -16,6 +16,10 @@ const uploadRoute = require("./routes/upload");
 app.use(cors());
 app.use(express.json());
 
+const path = require("path");
+// Serve uploaded files statically so the frontend can display them!
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+
 // test route
 app.get("/", (req, res) => {
   res.send("ForensiChain Backend Running");
